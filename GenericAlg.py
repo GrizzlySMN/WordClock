@@ -9,7 +9,7 @@ toolbox = base.Toolbox()
 toolbox.register(
   "random_char",
   random.choice,
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ") # Random chars in clock
+  "ABCDEFGHILNORSTUVWZÄÖÜ") # Random chars in clock
 
 DIM = 10 #matrix size
 
