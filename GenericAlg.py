@@ -9,9 +9,9 @@ toolbox = base.Toolbox()
 toolbox.register(
   "random_char",
   random.choice,
-  "ABCDEFGHILNORSTUVWZÄÖÜ") # Random chars in clock
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ") # Random chars in clock
 
-DIM = 10 #matrix size
+DIM = 10 #matrix side
 
 toolbox.register(
   "individual",
@@ -36,21 +36,21 @@ toolbox.register("population",
 
 #regex list: Numbers that the clock should display
 hours = ("EIS", "ZWÖI", "DRÜ", "VIERI", "FÜFI", "SÄCHSI",
-        "SIEBNI", "ACHTI", "NÜNI", "ZÄHNI", "EUFI", "ZWÖUFI",)
+        "SIEBNI", "ACHTI", "NÜNI", "ZÄHNI", "EUFI", "ZWÖLFI",)
 
 restrings = [] # hours to display. Like every 5min? every 10?
 for h in hours: restrings.append(h)
-for h in hours: restrings.append("FÜÜF.+AB.+"+h)
+for h in hours: restrings.append("FÜF.+AB.+"+h)
 for h in hours: restrings.append("ZÄÄ.+AB.+"+h)
 for h in hours: restrings.append("VIERTU.+AB.+"+h)
 for h in hours: restrings.append("ZWÄNZG.+AB.+"+h)
-for h in hours: restrings.append("FÜÜF.+VOR.+HAUBI.+"+h)
+for h in hours: restrings.append("FÜF.+VOR.+HAUBI.+"+h)
 for h in hours: restrings.append("HAUBI.+"+h)
-for h in hours: restrings.append("FÜÜF.+AB.+HAUBI.+"+h)
+for h in hours: restrings.append("FÜF.+AB.+HAUBI.+"+h)
 for h in hours: restrings.append("ZWÄNZG.+VOR.+"+h)
 for h in hours: restrings.append("VIERTU.+VOR.+"+h)
 for h in hours: restrings.append("ZÄÄ.+VOR.+"+h)
-for h in hours: restrings.append("FÜÜF.+VOR.+"+h)
+for h in hours: restrings.append("FÜF.+VOR.+"+h)
 
 def evaluateInd(individual):
     import re
@@ -85,7 +85,7 @@ if __name__ == "__main__":
 
         algorithms.eaMuPlusLambda (
                 pop, toolbox,
-                600, 200, #parents, children. 400/100increase those to decrease chance of getting stuck in local minima, but compilation time increases
+                400, 100, #parents, children
                 .2, .4, #probabilities
                 1) #iterations
 
